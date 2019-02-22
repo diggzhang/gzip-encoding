@@ -49,7 +49,7 @@ def upload_plain_json():
 def upload_gzip_json():
     gz_buffer = io.BytesIO()
     gz_file = gzip.GzipFile(mode='wb', fileobj=gz_buffer)
-    gz_file.write(json.dumps(DATA))
+    gz_file.write(json.dumps(DATA).encode('utf-8'))
     gz_file.close()
     gz_data = gz_buffer.getvalue()
 
